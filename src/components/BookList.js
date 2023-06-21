@@ -1,45 +1,54 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
-import Book from './Book';
-import AddBook from './AddBook';
-import { getBookList } from './api/getApiData';
+import { useState } from 'react';
 
-export default function BookList() {
-  const bookList = useSelector((state) => state.booklist.data);
-  const isLoading = useSelector((state) => state.booklist.isLoading);
-  const errorMessage = useSelector((state) => state.booklist.errorMessage);
-  const isSuccess = useSelector((state) => state.booklist.isSuccess);
-  const dispatch = useDispatch();
-  const URL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/';
+function BookList() {
+  const [books, setBooks] = useState([]);
+  const [title, setTitle] = useState('');
+  const [author, setAuthor] = useState('');
 
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        await dispatch(getBookList(URL));
-      } catch (error) {
-        console.log(error);
-      }
-    }
-    fetchData();
-  }, []);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const newBook = { title, author };
+    setBooks([...books, newBook]);
+    setTitle('');
+    setAuthor('');
+  };
 
-  const books = isSuccess && Object.keys(bookList).map((key) => (
-    bookList[key].map((book) => (
-      <Book key={key} title={book.title} author={book.author} itemId={key} />
-    ))
-  ));
-
-  const error = !isSuccess && <p>{errorMessage}</p>;
+  const handleRemove = (title) => {
+    setBooks(books.filter((book) => book.title !== title));
+  };
 
   return (
     <section>
-      {isLoading ? <p>Loading...</p> : null}
+      <p>Book List</p>
+      <ul>
+        {books.map((book) => (
+          <li key={book.title}>
+            {book.title }
+            by
+            { book.author }
+            <button type="button" onClick={() => handleRemove(book.title)}>Remove</button>
+          </li>
+        ))}
+      </ul>
 
-      {books || error}
-
-      <hr className="hr-add-book" />
-
-      <AddBook />
+      <h3>Add a Book</h3>
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label htmlFor="title">
+            Title:
+            <input id="title" type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
+          </label>
+        </div>
+        <div>
+          <label htmlFor="author">
+            Author:
+            <input id="author" type="text" value={author} onChange={(e) => setAuthor(e.target.value)} />
+          </label>
+        </div>
+        <button type="submit">Add Book</button>
+      </form>
     </section>
   );
 }
+
+export default BookList;
