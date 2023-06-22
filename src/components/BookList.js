@@ -1,54 +1,17 @@
-import { useState } from 'react';
+import { useSelector } from 'react-redux';
+import AddBook from './AddBook';
+import Book from './Book';
 
-function BookList() {
-  const [books, setBooks] = useState([]);
-  const [title, setTitle] = useState('');
-  const [author, setAuthor] = useState('');
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const newBook = { title, author };
-    setBooks([...books, newBook]);
-    setTitle('');
-    setAuthor('');
-  };
-
-  const handleRemove = (title) => {
-    setBooks(books.filter((book) => book.title !== title));
-  };
+export default function BookList() {
+  const bookList = useSelector((state) => state.booklist.value);
 
   return (
-    <section>
-      <p>Book List</p>
-      <ul>
-        {books.map((book) => (
-          <li key={book.title}>
-            {book.title }
-            by
-            { book.author }
-            <button type="button" onClick={() => handleRemove(book.title)}>Remove</button>
-          </li>
-        ))}
-      </ul>
+    <section className="books-container-section">
+      {bookList.map((book) => (
+        <Book key={book.id} title={book.title} author={book.author} id={book.id} />
+      ))}
 
-      <h3>Add a Book</h3>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="title">
-            Title:
-            <input id="title" type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
-          </label>
-        </div>
-        <div>
-          <label htmlFor="author">
-            Author:
-            <input id="author" type="text" value={author} onChange={(e) => setAuthor(e.target.value)} />
-          </label>
-        </div>
-        <button type="submit">Add Book</button>
-      </form>
+      <AddBook />
     </section>
   );
 }
-
-export default BookList;

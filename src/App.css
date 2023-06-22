@@ -221,6 +221,11 @@ body {
 .add-book form {
   display: flex;
   justify-content: space-between;
+  
+}
+
+.books-container-section form {
+  margin: 20px;
 }
 
 .add-book input {
