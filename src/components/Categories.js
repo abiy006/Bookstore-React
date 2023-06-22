@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { checkStatus } from './categories/categoriesSlice';
+import { checkStatus } from '../redux/categories/categoriesSlice';
 
 export default function Categories() {
   const categories = useSelector((state) => state.categories);
