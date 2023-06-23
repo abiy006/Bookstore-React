@@ -4,7 +4,6 @@ import { useDispatch } from 'react-redux';
 import { getBookList, removeBook } from '../api/dataFromAPI';
 import URL from '../api/apiURL';
 
-
 const Book = ({ title, author, itemId }) => {
   const dispatch = useDispatch();
 
