@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { v4 as uuid } from 'uuid';
 import { useDispatch } from 'react-redux';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 import { addBook, getBookList } from '../api/dataFromAPI';
 import URL from '../api/apiURL';
 
@@ -39,10 +41,15 @@ export default function AddBook() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit}>
+      {/* <form onSubmit={handleSubmit}> */}
       <input type="text" placeholder="Title" name="title" value={book.title} onChange={handleInputChange} required />
       <input type="text" placeholder="Author" name="author" value={book.author} onChange={handleInputChange} required />
-      <button type="submit">Add book</button>
-    </form>
+      {/* <button type="submit">Add book</button> */}
+      <Button variant="primary" type="submit">
+        Add book
+      </Button>
+      {/* </form> */}
+    </Form>
   );
 }
