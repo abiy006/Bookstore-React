@@ -43,12 +43,19 @@ export default function AddBook() {
   return (
     <Form onSubmit={handleSubmit}>
       {/* <form onSubmit={handleSubmit}> */}
-      <input type="text" placeholder="Title" name="title" value={book.title} onChange={handleInputChange} required />
-      <input type="text" placeholder="Author" name="author" value={book.author} onChange={handleInputChange} required />
+      <Form.Group controlId="formBasicText" className="custom-form">
+        <Form.Control type="text" placeholder="Title" name="title" value={book.title} onChange={handleInputChange} required />
+        <Form.Control type="text" placeholder="Author" name="author" value={book.author} onChange={handleInputChange} required />
+        <Button variant="primary" type="submit">
+          Add book
+        </Button>
+      </Form.Group>
+      {/* <input type="text" placeholder="Title" name="title" value={book.title}
+      onChange={handleInputChange} required />
+      <input type="text" placeholder="Author" name="author" value={book.author}
+      onChange={handleInputChange} required /> */}
       {/* <button type="submit">Add book</button> */}
-      <Button variant="primary" type="submit">
-        Add book
-      </Button>
+
       {/* </form> */}
     </Form>
   );
