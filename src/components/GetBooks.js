@@ -1,8 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import Book from './Book';
+import Book from './BookItem';
 import AddBook from './AddBook';
-import { getBookList } from './api/getApiData';
+import { getBookList } from '../api/dataFromAPI';
+import URL from '../api/apiURL';
 
 export default function BookList() {
   const bookList = useSelector((state) => state.booklist.data);
@@ -10,7 +11,6 @@ export default function BookList() {
   const errorMessage = useSelector((state) => state.booklist.errorMessage);
   const isSuccess = useSelector((state) => state.booklist.isSuccess);
   const dispatch = useDispatch();
-  const URL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/';
 
   useEffect(() => {
     async function fetchData() {
@@ -32,12 +32,10 @@ export default function BookList() {
   const error = !isSuccess && <p>{errorMessage}</p>;
 
   return (
-    <section>
+    <section className="books-container-section">
       {isLoading ? <p>Loading...</p> : null}
 
       {books || error}
-
-      <hr className="hr-add-book" />
 
       <AddBook />
     </section>
