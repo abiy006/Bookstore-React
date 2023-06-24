@@ -31,7 +31,7 @@ body {
   border-bottom: 2px solid var(--pale-grey);
 }
 
-.navbar > div {
+.navbar>div {
   display: flex;
   justify-content: space-between;
   padding: 0 20px;
@@ -75,6 +75,21 @@ body {
 
 .nav-link a:hover {
   opacity: 100%;
+}
+
+.profile-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2.813rem;
+  height: 2.813rem;
+  border-radius: 50%;
+  border: solid 1px #e8e8e8;
+}
+
+.profile-icon {
+  font-size: 1.465rem;
+  color: #0290ff;
 }
 
 .book-container,
