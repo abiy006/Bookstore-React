@@ -31,7 +31,7 @@ body {
   border-bottom: 2px solid var(--pale-grey);
 }
 
-.navbar>div {
+.navbar > div {
   display: flex;
   justify-content: space-between;
   padding: 0 20px;
