@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import Book from './Book';
+import Book from './BookItem';
 import AddBook from './AddBook';
 import { getBookList } from '../api/dataFromAPI';
 import URL from '../api/apiURL';
