@@ -223,6 +223,10 @@ body {
   justify-content: space-between;
 }
 
+.books-container-section form {
+  margin: 20px;
+}
+
 .add-book input {
   font-size: 16px;
   padding: 5px;
