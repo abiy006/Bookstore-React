@@ -1,4 +1,3 @@
-/* eslint-disable no-param-reassign */
 import { createSlice } from '@reduxjs/toolkit';
 import { addBook, getBookList, removeBook } from '../api/getApiData';
 
