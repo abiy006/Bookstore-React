@@ -5,7 +5,7 @@ const initialState = {
   value: [],
 };
 
-//initializing the variables
+/* initializing the variables */
 const categoriesSlice = createSlice({
   name: 'categories',
   initialState,
