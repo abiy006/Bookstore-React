@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { addBook, getBookList, removeBook } from '../../components/api/getApiData';
 
 const initialState = {
-  data: [],
+  books: [],
   isLoading: false,
   isSuccess: false,
   errorMessage: '',
@@ -23,7 +23,7 @@ const booksSlice = createSlice({
       .addCase(getBookList.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.isSuccess = true;
-        state.data = payload;
+        state.books = payload;
       })
       .addCase(getBookList.rejected, (state, { payload }) => {
         state.isLoading = false;

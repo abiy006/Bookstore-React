@@ -5,7 +5,7 @@ import AddBook from './AddBook';
 import { getBookList } from './api/getApiData';
 
 export default function BookList() {
-  const bookList = useSelector((state) => state.booklist.data);
+  const bookList = useSelector((state) => state.booklist.books);
   const isLoading = useSelector((state) => state.booklist.isLoading);
   const errorMessage = useSelector((state) => state.booklist.errorMessage);
   const isSuccess = useSelector((state) => state.booklist.isSuccess);
