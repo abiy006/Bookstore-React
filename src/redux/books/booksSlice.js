@@ -1,6 +1,6 @@
 /* eslint-disable no-param-reassign */
 import { createSlice } from '@reduxjs/toolkit';
-import { addBook, getBookList, removeBook } from '../../components/api/getApiData';
+import { addBook, getBookList, removeBook } from './getApiData';
 
 const initialState = {
   data: [],
