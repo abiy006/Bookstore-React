@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const appIdentifier = 'XWEo0IT3IBy6tskuJWZX';
+const appIdentifier = 'Uf3HfOUvWupABTiu0p60';
 
 export const getBookList = createAsyncThunk('booklist/getBooklist', async (URL, { rejectWithValue }) => {
   try {
