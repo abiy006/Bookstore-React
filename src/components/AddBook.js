@@ -47,5 +47,5 @@ export default function AddBook() {
         <button type="submit">Add book</button>
       </form>
     </div>
-  );
+  ); 
 }
