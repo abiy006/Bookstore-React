@@ -44,5 +44,5 @@ export default function AddBook() {
       <input type="text" placeholder="Author" name="author" value={book.author} onChange={handleInputChange} required />
       <button type="submit">Add book</button>
     </form>
-  );
+  ); 
 }
