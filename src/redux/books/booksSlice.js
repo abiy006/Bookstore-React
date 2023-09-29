@@ -21,7 +21,7 @@ const initialState = {
       category: 'Nonfiction',
     },
   ],
-};
+}; 
 
 const booksSlice = createSlice({
   name: 'bookList',
